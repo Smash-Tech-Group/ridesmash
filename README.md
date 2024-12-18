@@ -1,4 +1,4 @@
-# RideSmash
+# 🚗 RideSmash
 
 Ridesmash Technology operates an e-hailing, delivery services accross cities in africa.
 
@@ -7,4 +7,4 @@ Ridesmash Technology operates an e-hailing, delivery services accross cities in 
 Make sure you have Node.js installed. 
 
 - npm install
-- npm run dev 
+- npm run dev git 
