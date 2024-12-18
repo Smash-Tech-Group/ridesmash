@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const AboutSubHeader = () => {
   return (
@@ -36,4 +36,4 @@ const AboutSubHeader = () => {
   )
 }
 
-export default AboutSubHeader
+export default AboutSubHeader;
