@@ -27,8 +27,8 @@ const Hero = () => {
                     Transform the way you move, one ride at a time.</h3>
                 <div className="flex flex-row gap-3 mt-3">
                     <button 
-                     className='flex items-center border justify-center hover:bg-primary border-secondary bg-secondary transition-all duration-300 hover:border-primary py-3 px-6 text-primary rounded-full hover:text-white text-md font-semibold'> Download App</button>
-                    <a href="/driveAndEarn" className='flex items-center border-[2px] border-secondary justify-center bg-transparent transition-all duration-300 text-secondary py-3 px-6 rounded-full hover:border-primary hover:text-white hover:bg-primary font-semibold text-md'> Drive and Earn</a>
+                     className='flex items-center border justify-center hover:bg-primary border-secondary bg-secondary transition-all duration-300 hover:border-primary py-3 px-6 text-primary rounded-full hover:text-white text-sm md:text-md font-semibold'> Download App</button>
+                    <a href="/driveAndEarn" className='flex items-center border-[2px] border-secondary justify-center bg-transparent transition-all duration-300 text-secondary py-3 px-4 md:px-6 rounded-full hover:border-primary hover:text-white hover:bg-primary font-semibold text-sm md:text-md'> Drive and Earn</a>
                 </div>
             </motion.div>
             {/* <motion.div

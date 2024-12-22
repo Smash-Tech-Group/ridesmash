@@ -133,7 +133,7 @@ const Navbar = () => {
 
           <div style={{background: "linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 92, 186, 0.7))",
           margin: "0 auto"
-  }}  className={`space-y-4 pt-0 absolute left-0 lg:left-[4rem] rounded-3xl pb-5 w-[100%] lg:w-[90%] flex flex-col text-center justify-around md:flex-row md:text-left lg:flex-row gap-3 z-10 h-[90vh] lg:h-[400px] overflow-hidden
+  }}  className={`space-y-4 pt-0 absolute left-0 lg:left-[4rem] rounded-3xl pb-5 w-[100%] lg:w-[90%] flex flex-col text-center justify-evenly md:flex-row md:text-left lg:flex-row gap-3 z-10 h-[90vh] lg:h-[400px] overflow-hidden
     ${isMenuOpened ? "opacity-100 translate-y-0 visible pointer-events-auto" : "opacity-0 -translate-y-5 invisible pointer-events-none"} 
     transition-all duration-500 ease-in-out`}
 >
