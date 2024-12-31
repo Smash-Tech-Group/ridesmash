@@ -10,7 +10,7 @@ const FranchiseTitle = () => {
 
         <div className="flex w-full md:w-full md:items-center md:justify-center items-center justify-center mt-4">
 
-            <h1 className="text-2xl md:text-gray-700 text-gray-700 md:text-6xl font-extrabold md:font-extrabold roboto">Franchise Partner</h1>
+            <h1 className="text-2xl md:text-gray-300 text-gray-300 md:text-6xl font-extrabold md:font-extrabold roboto">Franchise Partner</h1>
             
         </div>
     

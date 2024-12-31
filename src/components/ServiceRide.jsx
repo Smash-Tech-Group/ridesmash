@@ -26,11 +26,11 @@ const ServiceRide = ({currency, country}) => {
             
             
             className=' md:w-2/5 w-full '>
-                <h1 className='md:text-4xl text-3xl font-bold text-black md:text-gray-700 mb-5 leading-normal'>Ride </h1>
-                <p className='text-gray-600 text-md lg:text-lg mb-4'>Connect with a driver for immediate pick-up and drop-off service within the city.</p>
-                <p className='text-gray-600 text-md lg:text-lg mb-4'>This service is perfect for everyday commutes, errands, or nights out.</p>
+                <h1 className='md:text3xl text-3xl font-bold text-black md:text-gray-700 mb-5 leading-normal'>Ride </h1>
+                <p className='text-gray-700 text-md lg:text-lg mb-4'>Connect with a driver for immediate pick-up and drop-off service within the city.</p>
+                <p className='text-gray-700 text-md lg:text-lg mb-4'>This service is perfect for everyday commutes, errands, or nights out.</p>
 
-                <p className='text-gray-600 text-md lg:text-lg mb-4 md:font-bold'>Benefits:</p>
+                <p className='text-gray-700 text-md lg:text-lg mb-4 md:font-bold'>Benefits:</p>
 
                 <div className='flex  md:flex-row gap-2 md:items-center mb-4 items-center '>
                   <FaSquare size={8} color='gray' />
