@@ -28,30 +28,30 @@ const Navbar = () => {
       icon: <BiChevronDown aria-hidden="true" />,
       ariaLabel: "Learn about our company, blog, safety measures, and more",
       submenu: [
-        { link: "About Us", path: "about", ariaLabel: "Learn more about us" },
-        { link: "Blog", path: "blog", ariaLabel: "Read our latest blog posts" },
-        { link: "Safety", path: "safety", ariaLabel: "Learn about our safety measures" },
-        { link: "FAQ", path: "faq", ariaLabel: "Get answers to frequently asked questions" },
+        { link: "About Us", path: "/about", ariaLabel: "Learn more about us" },
+        { link: "Blog", path: "/blog", ariaLabel: "Read our latest blog posts" },
+        { link: "Safety", path: "/safety", ariaLabel: "Learn about our safety measures" },
+        { link: "FAQ", path: "/faq", ariaLabel: "Get answers to frequently asked questions" },
       ],
     },
     {
       link: "Driver",
-      path: "driveAndEarn",
+      path: "/driveAndEarn",
       icon: <BiChevronDown aria-hidden="true" />,
       ariaLabel: "Explore driver opportunities and help resources",
       submenu: [
-        { link: "Earn With Us", path: "driveAndEarn", ariaLabel: "Learn how to earn by driving with us" },
-        { link: "Help Center", path: "contact", ariaLabel: "Get support from our help center" },
+        { link: "Earn With Us", path: "/driveAndEarn", ariaLabel: "Learn how to earn by driving with us" },
+        { link: "Help Center", path: "/contact", ariaLabel: "Get support from our help center" },
       ],
     },
     {
       link: "Partnership",
-      path: "driveAndEarn",
+      path: "/driveAndEarn",
       icon: <BiChevronDown aria-hidden="true" />,
       ariaLabel: "Discover partnership opportunities including fleet management and franchises",
       submenu: [
-        { link: "Fleets Management", path: "fleets", ariaLabel: "Learn about fleet management" },
-        { link: "Franchise Partner", path: "franchise", ariaLabel: "Become a franchise partner" },
+        { link: "Fleets Management", path: "/fleets", ariaLabel: "Learn about fleet management" },
+        { link: "Franchise Partner", path: "/franchise", ariaLabel: "Become a franchise partner" },
       ],
     },
   ];
@@ -197,10 +197,10 @@ const Navbar = () => {
      }`}
    >
       <div className="flex hover:text-gray-200 text-white items-center w-[100%]  mt-5 justify-between hover:text-secondary transition-all duration-300 justify-center md:justify-start">
-        <Link to={path} className="block py-1 text-md font-bold" aria-label={ariaLabel}> 
+        <NavLink to={path} className="block py-1 text-md font-bold" aria-label={ariaLabel}> 
 
           {link}
-        </Link>
+        </NavLink>
         {icon && (
           
           <span
@@ -231,14 +231,14 @@ const Navbar = () => {
         {submenu && (
           <div className="space-y-2 ml-5 md:ml-0 transition-all duration-500 ease-in">
             {submenu.map(({ link, path }) => (
-              <Link
+              <NavLink
                 key={link}
                 to={path}
                 aria-label={ariaLabel}
                 className="block text-left text-sm py-2 hover:rounded-md transition-all duration-500 text-white hover:text-secondary"
               >
                 {link}
-              </Link>
+              </NavLink>
             ))}
           </div>
         )}
