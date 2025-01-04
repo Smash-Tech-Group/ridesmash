@@ -136,7 +136,7 @@ const Navbar = () => {
                  <BiSupport className='text-xl gap-1'/>
                  <NavLink to='/support' aria-label="Customer support for Ridesmash" className='text-md'>Support</NavLink>
               </div>
-              <NavLink to='login' className='bg-secondary py-3 px-6 rounded-full text-primary hover:text-white hover:bg-primary text-sm font-semibold'>Login</NavLink>
+              <NavLink to='/login' className='bg-secondary py-3 px-6 rounded-full text-primary hover:text-white hover:bg-primary text-sm font-semibold'>Login</NavLink>
 
               <div className='flex align-center'>
               <button 
@@ -197,10 +197,10 @@ const Navbar = () => {
      }`}
    >
       <div className="flex hover:text-gray-200 text-white items-center w-[100%]  mt-5 justify-between hover:text-secondary transition-all duration-300 justify-center md:justify-start">
-        <NavLink to={path} className="block py-1 text-md font-bold" aria-label={ariaLabel}> 
+        <Link to={path} className="block py-1 text-md font-bold" aria-label={ariaLabel}> 
 
           {link}
-        </NavLink>
+        </Link>
         {icon && (
           
           <span
@@ -231,14 +231,14 @@ const Navbar = () => {
         {submenu && (
           <div className="space-y-2 ml-5 md:ml-0 transition-all duration-500 ease-in">
             {submenu.map(({ link, path }) => (
-              <NavLink
+              <Link
                 key={link}
                 to={path}
                 aria-label={ariaLabel}
                 className="block text-left text-sm py-2 hover:rounded-md transition-all duration-500 text-white hover:text-secondary"
               >
                 {link}
-              </NavLink>
+              </Link>
             ))}
           </div>
         )}

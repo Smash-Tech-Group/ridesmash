@@ -17,7 +17,7 @@ export default function ContactContent() {
                     <h1 className=' font-extrabold text-orange-500 text-[32px] md:text-[56px] roboto-regular leading-[40px] md:leading-[66px] '>Help and Support</h1>
                 </div> */}
                 <div className='  md:pr-6'>
-                    <p className=' text-lg md:text-2xl text-gray-700 my-4'>
+                    <p className=' text-md md:text-lg text-gray-700 my-4'>
                     We operates 24/7 and we fully ready to help and support you at anytime.
                     </p>
                 </div>

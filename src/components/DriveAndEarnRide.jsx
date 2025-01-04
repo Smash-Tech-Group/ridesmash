@@ -41,7 +41,7 @@ console.log( 'output:', output)
 
 
   return (
-    <div className="flex md:px-14 p-4 md:h-full py-[4rem] mx-auto my-24 md:my-0 md:items-center md:justify-center bg-white">
+    <div className="flex md:px-14 p-4 md:h-full py-[5rem] mx-auto md:my-0 md:items-center md:justify-center bg-white">
         <div className="flex max-w-screen-2xl mx-auto md:flex-row flex-col justify-between md:items-center gap-8">
            
             <div className=" md:w-1/2">
