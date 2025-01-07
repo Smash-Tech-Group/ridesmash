@@ -16,6 +16,7 @@ import WhyChooseUs from "../../components/WhyChooseus"
 import BlogContent from "../../components/blogContent"
 import FaqView from "../../components/faqView";
 import backgroundImage from '../../assets/hero.webp';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 
@@ -76,6 +77,17 @@ const HeroImg = {
       <div style={HeroImg} className="">
         <Navbar/>
         {/*<AboutBackGround/>*/}
+        <LazyLoadImage
+        src={backgroundImage}
+        alt="Lazy Loaded Background"
+        style={{
+          ...HeroImg, 
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          zIndex: '-1',
+        }}
+      />
         <Hero/> 
       </div>
         <OurServices/>

@@ -1,7 +1,9 @@
-import delivery from './../assets/delivery-man.webp'
+import delivery from './../assets/delivery.webp'
 import {motion} from 'framer-motion'
 import { fadeIn } from '../variants'
 import {Link} from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 
 const EarnDelivery = ({currency, country}) => {
@@ -16,7 +18,7 @@ const EarnDelivery = ({currency, country}) => {
         viewport={{ once: true }}
         className="md:w-1/2"
       >
-        <img src={delivery} alt="Delivery Person" className="rounded-lg" />
+        <LazyLoadImage src={delivery} alt="Delivery Person" className="rounded-lg" />
       </motion.div>
   
       {/* Content Section */}

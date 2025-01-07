@@ -93,6 +93,7 @@ const Footer = () => {
                         <a href='/ride' className='block hover:text-secondary text-gray-200'>Ride</a>
                         <a href='/delivery' className='block hover:text-secondary text-gray-200'>Delivery</a>
                         <a href='/rental' className='block hover:text-secondary text-gray-200'>Car Rental</a>
+                        <a href='/rental' className='block hover:text-secondary text-gray-200'>Hire Purchase</a>
                         <a href='/airport' className='block hover:text-secondary text-gray-200'>Airport Pickup</a>
                         <a href='/business' className='block hover:text-secondary text-gray-200'>Ridesmash Business</a>
                     </ul>
@@ -136,10 +137,10 @@ const Footer = () => {
          <div className='flex flex-col gap-2 md:items-center md:justify-center'>
             <h3 className=' text-gray-300'>Connect with us </h3>
             <div className='flex flex-row items-center gap-3 '>
-                <a href='/'><FaFacebookF className=' text-2xl' /></a>
-                <a href='/'><FaInstagram className=' text-2xl' /></a>
-                <a href='/'><FaTwitter className=' text-2xl' /></a>
-                <a href='/'><FaTiktok className=' text-2xl' /></a>
+                <a href='https://web.facebook.com/ridesmashNigeria'><FaFacebookF className=' text-2xl' /></a>
+                <a href='https://www.instagram.com/ridesmashnigeria/'><FaInstagram className=' text-2xl' /></a>
+                <a href='https://x.com/ridesmashng?s=21/'><FaTwitter className='text-2xl' /></a>
+                <a href='https://www.tiktok.com/@ridesmash?_t=ZM-8spvH4JpCrd&_r=1'><FaTiktok className=' text-2xl' /></a>
             </div>
          </div>
         

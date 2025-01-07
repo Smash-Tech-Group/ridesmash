@@ -1,10 +1,12 @@
-import rider from '../assets/woman-rider.jpg'
+import rider from '../assets/woman-rider.webp'
 import background from '../assets/background2.jpg'
 // import background1 from '../assets/background1.jpg'
 import {motion} from 'framer-motion'
 import { fadeIn } from '../variants'
 import { FaSquare} from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 const WhyChooseUs = () => {
   return (
@@ -75,9 +77,11 @@ const WhyChooseUs = () => {
               className=' md:w-1/3 hidden md:block'
             >
               
-
-                <img src={rider} alt='' className=' rounded-3xl rounded-br-full'/>
-
+              <LazyLoadImage 
+              className=' rounded-3xl rounded-br-full'
+              src={rider} 
+              alt='rider app'
+              />
             </motion.div>
             <motion.div
             
