@@ -40,7 +40,7 @@ function convert() {
 
   return (
     <div className="flex md:px-14 py-[2rem] md:py-0 px-6 md:py-[4rem] mx-auto md:my-0 md:items-center md:justify-center bg-black">
-    <div className="flex md:flex-row flex-col justify-between md:items-center gap-8">
+    <div className="flex max-w-screen-2xl mx-auto md:flex-row flex-col justify-between md:items-center gap-8">
       {/* Image Section */}
       <motion.div
         variants={fadeIn("up", 0.2)}

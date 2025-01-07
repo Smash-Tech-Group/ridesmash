@@ -6,6 +6,8 @@ import { FaTwitter } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import android from "./../assets/Google-play-store.png";
 import apple from "./../assets/Apple-Download.png";
+import partner from "./../assets/partner.webp";
+
 import { serverTimestamp, addDoc, collection, } from "@firebase/firestore";
 import {db} from '../../firebase'
 import Button from '@mui/material/Button';
@@ -71,7 +73,15 @@ const Footer = () => {
                                 <Button type='submit' variant="contained" sx={{py:1,}}  onClick={onSubmit}  >subscribe</Button>
                             </div>
                         <span className=' text-red-500'>{emailError !== "" && emailError}</span>
+                       
+                       
+                       <div className='hidden md:block'>
+                        <h4 className='text-gray-100'>Our Partner</h4>
+                       <img src={partner} alt="" className='w-[250px] h-[250px]' />
+                        </div> 
+
                 </div>
+
             </div>    
        
             <div className='md:w-3/4 flex md:flex-row flex-col flex-wrap justify-between gap-3 mt-[2rem] items-start'>
@@ -142,6 +152,7 @@ const Footer = () => {
                 <a href='https://x.com/ridesmashng?s=21/'><FaTwitter className='text-2xl' /></a>
                 <a href='https://www.tiktok.com/@ridesmash?_t=ZM-8spvH4JpCrd&_r=1'><FaTiktok className=' text-2xl' /></a>
             </div>
+
          </div>
         
        </div>
@@ -168,7 +179,6 @@ const Footer = () => {
          </div>
          <div className='items-center md:py-2 py-8 md:justify-center'>
          <p className='regular-14 w-full text-center text-gray-300'>&copy; {currentYear} Ridesmash Technology | All rights reserved</p>
-     
          </div>
     </div>
   )

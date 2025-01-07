@@ -18,7 +18,7 @@ const Navbar = () => {
         { link: "Ride Hailing", path: "/ride", ariaLabel: "Learn about our ride-hailing services" },
         { link: "Delivery", path: "/delivery", ariaLabel: "Explore our delivery services" },
         { link: "Car Rental", path: "/rental", ariaLabel: "Rent cars with ease" },
-        { link: "Hire Purchase", path: "/rental", ariaLabel: "Rent cars with ease" },
+        { link: "Hire Purchase", path: "/hirepurchase", ariaLabel: "seamless hire purchase process" },
         { link: "Airport Pickup", path: "/airport", ariaLabel: "Book an airport pickup service" },
         { link: "Ridesmash Business", path: "/business", ariaLabel: "Discover our business solutions" },
       ],
