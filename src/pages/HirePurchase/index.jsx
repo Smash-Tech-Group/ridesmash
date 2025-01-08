@@ -1,5 +1,6 @@
 import Footer from "../../components/Footer"
 import Title from "../../components/HirePurchaseTitle"
+import HirePurchase from "../../components/HirePurchase"
 import Navbar from "../../components/Navbar"
 
 
@@ -16,7 +17,7 @@ const HirePurchasePage = () => {
             <Navbar/>
         <Title/>
     </div>
-
+    <HirePurchase/>
         <Footer/>
     </>
   )

@@ -55,6 +55,16 @@ const Navbar = () => {
         { link: "Franchise Partner", path: "/franchise", ariaLabel: "Become a franchise partner" },
       ],
     },
+    {
+      link: "Ridesmash Space",
+      path: "/driveAndEarn",
+      icon: <BiChevronDown aria-hidden="true" />,
+      ariaLabel: "Discover partnership opportunities including fleet management and franchises",
+      submenu: [
+        { link: "Ridesmash Nigeria", path: "/fleets", ariaLabel: "Learn about fleet management" },
+        { link: "Ridesmash Africa", path: "/franchise", ariaLabel: "Become a franchise partner" },
+      ],
+    },
   ];
   
 

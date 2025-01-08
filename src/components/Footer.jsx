@@ -7,6 +7,10 @@ import { FaTiktok } from "react-icons/fa";
 import android from "./../assets/Google-play-store.png";
 import apple from "./../assets/Apple-Download.png";
 import partner from "./../assets/partner.webp";
+import partner2 from "./../assets/partner2.png";
+import partner3 from "./../assets/TAJBank.png";
+
+
 
 import { serverTimestamp, addDoc, collection, } from "@firebase/firestore";
 import {db} from '../../firebase'
@@ -54,7 +58,21 @@ const Footer = () => {
                         <img src={logo} alt='' className='w-[45px] h-[45px]'/>
                     </a>
                     <p className='md:w-1/2 text-base font-extralight text-gray-300'>Ridesmash Technology provides reliable e-hailing and delivery services, connecting cities across Africa with efficiency and convenience.</p>
-                    
+                    <div className='w-full md:hidden md:flex lg:flex-row flex-col pt-5'>
+                        <div className='text-gray-100 text-lg inter font-bold pb-2'>
+                        <h4 className='pb-4'>Our Financial Partner</h4>
+                        <img src={partner} alt="" className='w-[180px] h-[40px]' />
+                        </div>
+                        <div className='text-gray-100 text-lg inter mt-[2rem] lg:mt-[0px] lg:text-center pl-0 lg:pl-[2rem] font-bold pb-2'>
+                        <h4 className='pb-4'>Our Insurance Partner</h4>
+                        <div className='flex flex-col lg:flex-row'>
+                        <img src={partner2} alt="" className='w-[180px] pr-0 lg:pr-[2rem] mb-[2rem] lg:mb-[0px] h-[40px]' />
+                        <img src={partner3} alt="" className='w-[180px] h-[40px]' />
+                        </div>
+                       
+
+                        </div>
+                        </div> 
                 </div>
                 <div className='flex flex-col h-6 mb-6 md:mb-0'>
                             <h3 className='text-gray-400 text-base md:text-lg'>Newsletter and Events</h3>
@@ -75,9 +93,20 @@ const Footer = () => {
                         <span className=' text-red-500'>{emailError !== "" && emailError}</span>
                        
                        
-                       <div className='hidden md:block'>
-                        <h4 className='text-gray-100'>Our Partner</h4>
-                       <img src={partner} alt="" className='w-[250px] h-[250px]' />
+                       <div className='w-full hidden md:flex lg:flex-row flex-col pt-5'>
+                        <div className='text-gray-100 text-lg inter font-bold pb-2'>
+                        <h4 className='pb-4'>Our Financial Partner</h4>
+                        <img src={partner} alt="" className='w-[180px] h-[40px]' />
+                        </div>
+                        <div className='text-gray-100 text-lg inter mt-[2rem] lg:mt-[0px] lg:text-center pl-0 lg:pl-[2rem] font-bold pb-2'>
+                        <h4 className='pb-4'>Our Insurance Partner</h4>
+                        <div className='flex flex-col lg:flex-row'>
+                        <img src={partner2} alt="" className='w-[180px] pr-0 lg:pr-[2rem] mb-[2rem] lg:mb-[0px] h-[40px]' />
+                        <img src={partner3} alt="" className='w-[180px] h-[40px]' />
+                        </div>
+                       
+
+                        </div>
                         </div> 
 
                 </div>
@@ -115,7 +144,7 @@ const Footer = () => {
                         <a href='/driveAndEarn' className='block hover:text-secondary text-gray-200'>Drive and Earn</a>
                         <a href='/fleets' className='block hover:text-secondary text-gray-200'>Fleets Management </a>
                         <a href='/franchise' className='block hover:text-secondary text-gray-200'>Franchise Partner</a>
-                        
+                       
                     </ul>
                 </div>
                 <div className='space-y-4 mt-5'>
@@ -124,6 +153,7 @@ const Footer = () => {
                         <h3 className='block hover:text-secondary text-gray-200'>Nigeria</h3>
                         <h3 href='/' className='block hover:text-secondary text-gray-200'>Others...</h3>
                     </ul>
+                   
                 </div>
                 </div>
                
@@ -147,10 +177,10 @@ const Footer = () => {
          <div className='flex flex-col gap-2 md:items-center md:justify-center'>
             <h3 className=' text-gray-300'>Connect with us </h3>
             <div className='flex flex-row items-center gap-3 '>
-                <a href='https://web.facebook.com/ridesmashNigeria'><FaFacebookF className=' text-2xl' /></a>
-                <a href='https://www.instagram.com/ridesmashnigeria/'><FaInstagram className=' text-2xl' /></a>
-                <a href='https://x.com/ridesmashng?s=21/'><FaTwitter className='text-2xl' /></a>
-                <a href='https://www.tiktok.com/@ridesmash?_t=ZM-8spvH4JpCrd&_r=1'><FaTiktok className=' text-2xl' /></a>
+                <a href='https://web.facebook.com/ridesmashNigeria'><FaFacebookF className='hover:text-secondary text-2xl transition-all duration-300 cursor-pointer' /></a>
+                <a href='https://www.instagram.com/ridesmashnigeria/'><FaInstagram className='hover:text-secondary text-2xl' /></a>
+                <a href='https://x.com/ridesmashng?s=21/'><FaTwitter className='hover:text-secondary text-2xl' /></a>
+                <a href='https://www.tiktok.com/@ridesmash?_t=ZM-8spvH4JpCrd&_r=1'><FaTiktok className='hover:text-secondary text-2xl' /></a>
             </div>
 
          </div>
