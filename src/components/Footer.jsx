@@ -60,11 +60,11 @@ const Footer = () => {
                     <p className='md:w-1/2 text-base font-extralight text-gray-300'>Ridesmash Technology provides reliable e-hailing and delivery services, connecting cities across Africa with efficiency and convenience.</p>
                     <div className='w-full md:hidden md:flex lg:flex-row flex-col pt-5'>
                         <div className='text-gray-100 text-lg inter font-bold pb-2'>
-                        <h4 className='pb-4'>Our Financial Partner</h4>
+                        <h4 className='pb-4'>Our Insurance Partner</h4>
                         <img src={partner} alt="" className='w-[180px] h-[40px]' />
                         </div>
                         <div className='text-gray-100 text-lg inter mt-[2rem] lg:mt-[0px] lg:text-center pl-0 lg:pl-[2rem] font-bold pb-2'>
-                        <h4 className='pb-4'>Our Insurance Partner</h4>
+                        <h4 className='pb-4'>Our Financial Partner</h4>
                         <div className='flex flex-col lg:flex-row'>
                         <img src={partner2} alt="" className='w-[180px] pr-0 lg:pr-[2rem] mb-[2rem] lg:mb-[0px] h-[40px]' />
                         <img src={partner3} alt="" className='w-[180px] h-[40px]' />
@@ -95,11 +95,11 @@ const Footer = () => {
                        
                        <div className='w-full hidden md:flex lg:flex-row flex-col pt-5'>
                         <div className='text-gray-100 text-lg inter font-bold pb-2'>
-                        <h4 className='pb-4'>Our Financial Partner</h4>
+                        <h4 className='pb-4'>Our Insurance Partner</h4>
                         <img src={partner} alt="" className='w-[180px] h-[40px]' />
                         </div>
                         <div className='text-gray-100 text-lg inter mt-[2rem] lg:mt-[0px] lg:text-center pl-0 lg:pl-[2rem] font-bold pb-2'>
-                        <h4 className='pb-4'>Our Insurance Partner</h4>
+                        <h4 className='pb-4'>Our Financial Partner</h4>
                         <div className='flex flex-col lg:flex-row'>
                         <img src={partner2} alt="" className='w-[180px] pr-0 lg:pr-[2rem] mb-[2rem] lg:mb-[0px] h-[40px]' />
                         <img src={partner3} alt="" className='w-[180px] h-[40px]' />
