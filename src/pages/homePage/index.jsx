@@ -12,6 +12,7 @@ import ServiceOption from "../../components/serviceOption"
 import AboutBackGround from "../../components/AboutBackground"
 import GetApp from "../../components/GetApp"
 import GetDriverApp from "../../components/GetDriverApp"
+import Card from "../../components/Card"
 import WhyChooseUs from "../../components/WhyChooseus"
 import BlogContent from "../../components/blogContent"
 import FaqView from "../../components/faqView";
@@ -94,12 +95,14 @@ const HeroImg = {
         <GetApp/>
         {/* <Features/> */}
         <ServiceOption />
+        <Card />
         <WhyChooseUs/>
         
         <Earn currency = {countryInfo.countryCurrency} country = {countryInfo.countryName}/>
         <EarnDelivery currency = {countryInfo.countryCurrency} country = {countryInfo.countryName}/>
          {/* <GetApp/> */}
         <GetDriverApp/>
+
 {/*        
         <BlogContent/> */}
         {/* <FaqView/> */}
