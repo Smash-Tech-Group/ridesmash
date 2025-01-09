@@ -4,6 +4,7 @@ import Features from "../../components/Features"
 import Footer from "../../components/Footer"
 import Hero from "../../components/Hero"
 import Navbar from "../../components/Navbar"
+import OurServices from "../../components/OurServices"
 import Socials from "../../components/Socials"
 import {useEffect, useState} from 'react'
 import axios from 'axios'
@@ -11,10 +12,12 @@ import ServiceOption from "../../components/serviceOption"
 import AboutBackGround from "../../components/AboutBackground"
 import GetApp from "../../components/GetApp"
 import GetDriverApp from "../../components/GetDriverApp"
+import Card from "../../components/Card"
 import WhyChooseUs from "../../components/WhyChooseus"
 import BlogContent from "../../components/blogContent"
 import FaqView from "../../components/faqView";
-import backgroundImage from '../../assets/new-hero.jpg';
+import backgroundImage from '../../assets/hero.webp';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 
@@ -61,9 +64,8 @@ console.log(countryInfo.countryCurrency)
 const HeroImg = {
   backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 92, 186, 0.3)), url(${backgroundImage})`, 
   backgroundSize: 'cover',
-  backgroundPosition: 'top', 
-  backgroundRepeat: 'no-repeat', 
-  // height: '720px', 
+  backgroundPosition: 'center 30%', 
+  backgroundRepeat: 'no-repeat',
   height: '95vh', 
   width: '100%', 
 };
@@ -76,18 +78,33 @@ const HeroImg = {
       <div style={HeroImg} className="">
         <Navbar/>
         {/*<AboutBackGround/>*/}
+        <LazyLoadImage
+        src={backgroundImage}
+        alt="Lazy Loaded Background"
+        style={{
+          ...HeroImg, 
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          zIndex: '-1',
+        }}
+      />
         <Hero/> 
       </div>
-        <ServiceOption/>
+        <OurServices/>
         <GetApp/>
         {/* <Features/> */}
+        <ServiceOption />
+        <Card />
         <WhyChooseUs/>
         
         <Earn currency = {countryInfo.countryCurrency} country = {countryInfo.countryName}/>
-        <GetDriverApp/>
-        {/* <GetApp/> */}
         <EarnDelivery currency = {countryInfo.countryCurrency} country = {countryInfo.countryName}/>
-        <BlogContent/>
+         {/* <GetApp/> */}
+        <GetDriverApp/>
+
+{/*        
+        <BlogContent/> */}
         {/* <FaqView/> */}
        
         <Footer/>

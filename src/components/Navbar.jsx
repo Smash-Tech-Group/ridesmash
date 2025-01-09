@@ -1,162 +1,268 @@
-import { useState, useRef  } from 'react';
+import { useState, useRef, useEffect  } from 'react';
 import logo from '../../src/assets/logo.png'
 import { BiSupport, BiTaxi, BiChevronDown } from "react-icons/bi";
 import {FaXmark, FaBars} from 'react-icons/fa6'
-import { NavLink} from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 
 const Navbar = () => {
   
 
   const navItems = [
-    {link : "Home", path : "/"},
-    {link : "About Us", path : "about"},
-    {link : "Services ", path : "services", icon: <BiChevronDown />,
+    {
+      link: "Services",
+      path: "/services",
+      icon: <BiChevronDown aria-hidden="true" />,
+      ariaLabel: "View our services including ride hailing, delivery, car rental, and more",
       submenu: [
-        { link: "Hire Purchase", path: "" },
-        { link: "Car Rental", path: "" },
-        { link: "Fleet Management", path: "" },
-        { link: "Ride Hailing", path: "" },
-      ]
+        { link: "Ride Hailing", path: "/ride", ariaLabel: "Learn about our ride-hailing services" },
+        { link: "Delivery", path: "/delivery", ariaLabel: "Explore our delivery services" },
+        { link: "Car Rental", path: "/rental", ariaLabel: "Rent cars with ease" },
+        { link: "Hire Purchase", path: "/hirepurchase", ariaLabel: "seamless hire purchase process" },
+        { link: "Airport Pickup", path: "/airport", ariaLabel: "Book an airport pickup service" },
+        { link: "Ridesmash Business", path: "/business", ariaLabel: "Discover our business solutions" },
+      ],
     },
-    {link : "Drive & Earn", path : "driveAndEarn"},
-    {link : "Franchise", path : "franchise", icon: <BiChevronDown />,
+    {
+      link: "Company",
+      path: "/about",
+      icon: <BiChevronDown aria-hidden="true" />,
+      ariaLabel: "Learn about our company, blog, safety measures, and more",
       submenu: [
-        { link: "Read More", path: "" },
-        { link: "Sign Up", path: "" }
-
-      ]
+        { link: "About Us", path: "/about", ariaLabel: "Learn more about us" },
+        { link: "Blog", path: "/blog", ariaLabel: "Read our latest blog posts" },
+        { link: "Safety", path: "/safety", ariaLabel: "Learn about our safety measures" },
+        { link: "FAQ", path: "/faq", ariaLabel: "Get answers to frequently asked questions" },
+      ],
     },
-    {link : "Book a Ride", path: "booking", icon: <BiTaxi/>},
-    {link : "Contact Us", path : "contact"},
-  ]
+    {
+      link: "Driver",
+      path: "/driveAndEarn",
+      icon: <BiChevronDown aria-hidden="true" />,
+      ariaLabel: "Explore driver opportunities and help resources",
+      submenu: [
+        { link: "Earn With Us", path: "/driveAndEarn", ariaLabel: "Learn how to earn by driving with us" },
+        { link: "Help Center", path: "/contact", ariaLabel: "Get support from our help center" },
+      ],
+    },
+    {
+      link: "Partnership",
+      path: "/driveAndEarn",
+      icon: <BiChevronDown aria-hidden="true" />,
+      ariaLabel: "Discover partnership opportunities including fleet management and franchises",
+      submenu: [
+        { link: "Fleets Management", path: "/fleets", ariaLabel: "Learn about fleet management" },
+        { link: "Franchise Partner", path: "/franchise", ariaLabel: "Become a franchise partner" },
+      ],
+    },
+    {
+      link: "Ridesmash Space",
+      path: "/driveAndEarn",
+      icon: <BiChevronDown aria-hidden="true" />,
+      ariaLabel: "Discover partnership opportunities including fleet management and franchises",
+      submenu: [
+        { link: "Ridesmash Nigeria", path: "/fleets", ariaLabel: "Learn about fleet management" },
+        { link: "Ridesmash Africa", path: "/franchise", ariaLabel: "Become a franchise partner" },
+      ],
+    },
+  ];
+  
 
-  const [isMenuOpened, setIsMenuOpened] = useState(false)
-
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  
   const toggle = () => {
-    setIsMenuOpened(!isMenuOpened)
-  }
+    setIsMenuOpened((prev) => !prev);
+  };
+  
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 1020px)").matches;
 
-  const [dropdownVisibleIndex, setDropdownVisibleIndex] = useState(null);
-  const [isDropdownClicked, setIsDropdownClicked] = useState(false);
-  const dropdownTimeout = useRef(null); 
-
-  const handleMouseEnter = (index) => {
-    if (dropdownTimeout.current) {
-      clearTimeout(dropdownTimeout.current);
+    if (isMobile && isMenuOpened) {
+      document.body.classList.add("body-fixed");
+    } else {
+      document.body.classList.remove("body-fixed");
     }
-    if (!isDropdownClicked) {
-      setDropdownVisibleIndex(index);
+
+    return () => {
+      document.body.classList.remove("body-fixed");
+    };
+  }, [isMenuOpened]);
+
+  
+  const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
+
+  const handleDropdownToggle = (index) => {
+    if (openSubmenuIndex !== null && openSubmenuIndex !== index) {
+
+      setOpenSubmenuIndex(null);
+  
+      setTimeout(() => {
+        setOpenSubmenuIndex(index);
+      }, 500);
+    } else {
+      setOpenSubmenuIndex(openSubmenuIndex === index ? null : index);
+    }
+  };
+  const handleMouseEnter = (index) => {
+    if (window.innerWidth >= 1024) {
+      setOpenSubmenuIndex(index);
     }
   };
 
   const handleMouseLeave = () => {
-    if (!isDropdownClicked) {
-      dropdownTimeout.current = setTimeout(() => {
-        setDropdownVisibleIndex(null);
-      }, 300);
+    if (window.innerWidth >= 1024) {
+      setOpenSubmenuIndex(null);
     }
   };
 
-  const handleDropdownToggle = () => {
-    setIsDropdownClicked((prev) => !prev);
-    if (isDropdownClicked) {
-      setDropdownVisibleIndex(null);
-    }
-  };
-
-
+  
   return (
+    
     <>
-      <nav className="md:px-14 p-4 max-w-screen-2xl mx-auto text-white">
-        <div className="flex justify-between">
-          <div className="flex items-center space-x-14 justify-between w-[100%]">
-            <a
-              href="/"
-              className="bg-secondary w-[80px] h-[80px] items-center justify-center flex rounded-xl"
+      <nav className={`md:px-14 pb-3 pt-3 relative max-w-screen-2xl mx-auto z-70 text-white px-4 transition-all duration-500 ${
+            isMenuOpened ? "bg-gradient-active" : "bg-transparent"
+          }`}
+          style={
+            isMenuOpened
+              ? { background: "linear-gradient(to top,  rgba(0, 92, 186, .3), rgba(0, 92, 186, .7))" }
+              : {}
+          }>
+      <div
+          className="flex justify-between z-20" 
+>
+          <div className="flex items-center space-x-14 justify-between w-[100%] md:pb-3 pb-2">
+            <NavLink
+              to="/"
+              className="bg-secondary w-[45px] h-[45px]  items-center justify-center flex rounded-md"
+              aria-label="Ridesmash home page"
             >
-              <img src={logo} alt="" className="w-[60px] h-[60px]" />
-            </a>
+              <img src={logo} alt="Ridesmash - Your trusted e-hailing service" className="w-[30px] h-[30px]" />
+            </NavLink>
+            <div className='md:flex hidden items-center space-x-7'>
+            <div className='flex items-center gap-1 text-white hover:text-secondary  transition-all duration-300'>
+                <BiTaxi className='text-xl gap-1'/>
+                <NavLink to='/booking' aria-label="Book a ride with Ridesmash" className='text-md'>Book a Ride</NavLink>
+              </div>
+              <div className='flex items-center gap-1 hover:text-secondary text-white hover:text-secondary transition-all duration-300'>
+                 <BiSupport className='text-xl gap-1'/>
+                 <NavLink to='/contact' aria-label="Customer support for Ridesmash" className='text-md'>Support</NavLink>
+              </div>
+              <NavLink to='/login' className='bg-secondary py-3 px-6 rounded-full text-primary hover:text-white hover:bg-primary text-sm font-semibold'>Login</NavLink>
 
-            {/* Desktop Navigation */}
-            <ul className="md:flex items-center space-x-10 hidden">
-              {navItems.map(({ link, path, icon, submenu }, index) => (
-                <li key={link} className="relative">
-                  <a
-                    href={path}
-                    className="flex items-center transition-all duration-300 hover:text-secondary justify-center gap-1 text-lg"
-                  >
-                    {link}
-                    {icon && (
-                      <span
-                        className="cursor-pointer"
-                        onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={handleMouseLeave}
-                        onClick={handleDropdownToggle}
-                      >
-                        {icon}
-                      </span>
-                    )}
-                  </a>
-
-                  {/* Dropdown menu */}
-                  {submenu && dropdownVisibleIndex === index && (
-                    <ul
-                      className="absolute top-full left-0 mt-1 bg-primary shadow-md rounded-md text-gray-800 w-[200px]"
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={handleMouseLeave}
+              <div className='flex align-center'>
+              <button 
+                  onClick={toggle} 
+                  className="relative transition-all duration-700 flex items-center"
+                  aria-label="Services menu"
+                  aria-controls="services-submenu"
+                >
+                  {/* Icon Wrapper */}
+                  <div className="relative w-6 h-6">
+                    {/* Close Icon */}
+                    <span
+                      className={`absolute inset-0 flex items-center justify-center text-2xl transition-opacity duration-300 ${
+                        isMenuOpened ? 'opacity-100' : 'opacity-0'
+                      }`}
                     >
-                      {submenu.map(({ link, path }) => (
-                        <li key={link}>
-                          <a
-                            href={path}
-                            className="block px-4 py-2 hover:bg-secondary hover:rounded-md text-white hover:text-primary"
-                          >
-                            {link}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <div className='md:flex hidden items-center space-x-12'>
-              <a href='login' className='transition-all duration-300 bg-secondary py-3 px-8 rounded-full text-primary hover:text-white hover:bg-primary text-xl'>Login</a>
+                      <FaXmark />
+                    </span>
+                    {/* Menu Icon */}
+                    <span
+                      className={`absolute inset-0 flex items-center justify-center text-2xl transition-opacity duration-300 ${
+                        !isMenuOpened ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      <FaBars />
+                    </span>
+                  </div>
+                </button>
+
+             </div>
             </div>
             </div>
-
-          
-
              {/* small screen */}
 
-             <div className='md:hidden'>
-                <button onClick={toggle} className=''>
+             <div className='md:hidden transition-all duration-300 flex'>
+                <button onClick={toggle} aria-label="Toggle menu" className='transition-all duration-300'>
                     {
-                      isMenuOpened ? (<FaXmark className='text-4xl'/>) : (<FaBars className='text-4xl'/>)
+                      isMenuOpened ? (<FaXmark className='text-2xl transition-all duration-300'/>) : (<FaBars className='text-2xl transition-all duration-300'/>)
                     }
                 </button>
              </div>
 
           </div>
           
-        </nav>
-        <div className={`space-y-4 px-4 pt-0  pb-5 bg-[#020066] flex flex-col gap-1 h-[500px] ${isMenuOpened ? "block top-90 right-0 left-0 " : "hidden"}`}>
-          {
-            navItems.map(({link, path}) => <a key={link} href={path} className='block hover:text-gray-200 text-white py-1 text-2xl font-extralight'>{link}</a>)
-          }
-          <div className='flex flex-col gap-3 mb-6'>
-            
-              {/* <div className='flex items-center gap-3'>
-                <BiTaxi className='font-bold text-2md text-white gap-2'/>
-                <a href='/booking' className=' text-2xl text-white'>Book a Ride</a>
-              </div>  */}
-              <a href='login' className='bg-secondary my-6 py-2 px-4 rounded hover:text-white hover:bg-primary text-xl text-center'>Login</a>
-            </div>
-        </div>
 
+
+          <div style={{background: "linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 92, 186, 1))",
+          margin: "0 auto"
+  }}  className={`space-y-4 pt-0 absolute left-0 rounded-bl-3xl rounded-br-3xl z-40  md:pb-5 w-[100%] lg:w-[100%] flex flex-col text-center md:flex-row md:text-left lg:flex-row h-[90vh] lg:h-[400px] overflow-hidden
+    ${isMenuOpened ? "opacity-100 translate-y-0 visible pointer-events-auto z-40" : "opacity-0 -translate-y-5 invisible pointer-events-none z-40"} 
+    transition-all duration-500 ease-in-out`}
+>
+         {navItems.map(({ link, path, icon, submenu, ariaLabel }, index) => (
+     <div
+     key={link}
+     className={`px-0 lg:px-14 space-y-2 mx-auto text-center md:text-left w-[100%] px-4 z-40 ${
+       index === 0 ? "justify-start mt-[1rem]" : ""
+     }`}
+   >
+      <div className="flex hover:text-gray-200 text-white items-center w-[100%]  mt-5 justify-between hover:text-secondary transition-all duration-300 justify-center md:justify-start">
+        <NavLink to={path} className="block py-1 text-md font-bold" aria-label={ariaLabel}> 
+
+          {link}
+        </NavLink>
+        {icon && (
+          
+          <span
+            className={`cursor-pointer cursor-pointer md:hidden text-3xl focus:outline-none transition-transform duration-300 ease-in-out ${
+              openSubmenuIndex === index ? "rotate-180" : "rotate-0"
+            }`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => handleDropdownToggle(index)}
+          >
+            {icon}
+          </span>
+        )}
+      </div>
+      <hr className="hidden md:block" style={{ margin: "0" }} />
+      {/* Render Submenu */}
+      <div
+  className={`overflow-hidden transition-[max-height, opacity] duration-500 ease-in-out ${
+    openSubmenuIndex === index
+      ? "opacity-100 visible max-h-96"
+      : "opacity-0 invisible max-h-0"
+  } md:visible md:opacity-100 md:max-h-96`}
+
+  style={{
+    transition: `max-height 0.5s ease-in-out, opacity 0.3s ease-in-out`,
+  }}
+>      
+        {submenu && (
+          <div className="space-y-2 ml-5 md:ml-0 transition-all duration-500 ease-in">
+            {submenu.map(({ link, path }) => (
+              <NavLink
+                key={link}
+                to={path}
+                aria-label={ariaLabel}
+                className="block text-left text-sm py-2 hover:rounded-md transition-all duration-500 text-white hover:text-secondary"
+              >
+                {link}
+              </NavLink>
+            ))}
+          </div>
+        )}
+      </div>
+
+    </div>
+  ))}
+  <NavLink to='/login' className='bg-secondary py-3 mx-[5rem] rounded-full text-primary hover:text-white hover:bg-primary text-sm font-semibold md:hidden'>Login</NavLink>
+</div>
+
+        </nav> 
     </>
   )
 }
 
-export default Navbar
+export default Navbar;
